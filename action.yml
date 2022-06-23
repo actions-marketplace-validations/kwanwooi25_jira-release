@@ -1,0 +1,18 @@
+name: JIRA release
+
+author: steven.jeong
+
+description: Automate JIRA release
+
+inputs:
+  githubToken:
+    description: Github Token that has access to `repo`
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'lib/index.js'
+
+branding:
+  icon: 'list'
+  color: 'purple'
