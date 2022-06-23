@@ -1,6 +1,14 @@
 name: Test
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        type: string
+        required: true
+      issueKeys:
+        type: string
+        required: true
 
 jobs:
   test:
@@ -14,3 +22,7 @@ jobs:
           jiraHost: ${{ secrets.JIRA_HOST }}
           jiraEmail: ${{ secrets.JIRA_EMAIL }}
           jiraApiToken: ${{ secrets.JIRA_API_TOKEN }}
+          jiraProjectKey: 'ACTION'
+          jiraVersionPrefix: 'v'
+          jiraReleaseVersion: ${{ inputs.version }}
+          jiraIssueKeys: ${{ inputs.issueKeys }}

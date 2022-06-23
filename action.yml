@@ -17,6 +17,18 @@ inputs:
   jiraApiToken:
     description: Jira api token
     required: true
+  jiraProjectKey:
+    description: Jira project key
+    required: true
+  jiraVersionPrefix:
+    description: Jira version prefix
+    required: true
+  jiraReleaseVersion:
+    description: Jira release version
+    required: true
+  jiraIssueKeys:
+    description: Jira issue keys (comma separated)
+    required: true
 
 runs:
   using: 'node16'

@@ -22,7 +22,6 @@
   "homepage": "https://github.com/kwanwooi25/jira-release#readme",
   "dependencies": {
     "@actions/core": "^1.9.0",
-    "@actions/github": "^5.0.3",
     "jira.js": "^2.15.2"
   },
   "devDependencies": {
