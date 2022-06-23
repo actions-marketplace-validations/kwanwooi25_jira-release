@@ -9,3 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          jiraHost: ${{ secrets.JIRA_HOST }}
+          jiraEmail: ${{ secrets.JIRA_EMAIL }}
+          jiraApiToken: ${{ secrets.JIRA_API_TOKEN }}

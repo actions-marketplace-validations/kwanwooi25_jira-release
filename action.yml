@@ -8,6 +8,15 @@ inputs:
   githubToken:
     description: Github Token that has access to `repo`
     required: true
+  jiraHost:
+    description: Jira host address
+    required: true
+  jiraEmail:
+    description: Jira email
+    required: true
+  jiraApiToken:
+    description: Jira api token
+    required: true
 
 runs:
   using: 'node16'

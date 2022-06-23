@@ -1,3 +1,7 @@
+import { initJiraClient } from './jira';
+
 (async () => {
-  console.log('Hello!');
+  const jiraClient = initJiraClient();
+  const issue = await jiraClient.issues.getIssue({ issueIdOrKey: 'ACTION-1' });
+  console.log(issue);
 })();
