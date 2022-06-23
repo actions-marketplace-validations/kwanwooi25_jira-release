@@ -7,6 +7,7 @@ export const initJiraClient = () => {
   const apiToken = getInput('jiraApiToken', { required: true });
 
   return new Version2Client({
+    newErrorHandling: true,
     host,
     authentication: {
       basic: {
