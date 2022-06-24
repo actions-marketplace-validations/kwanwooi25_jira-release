@@ -11,6 +11,7 @@ export const getVariables = () => {
   const jiraIssueKeys = getInput('jiraIssueKeys', { required: true });
   const issueKeys = jiraIssueKeys?.split(',') ?? [];
   const shouldRelease = getInput('shouldRelease') === 'true';
+  const doneStatusName = getInput('jiraIssueDoneStatusName');
 
   return {
     host,
@@ -20,5 +21,6 @@ export const getVariables = () => {
     versionName,
     issueKeys,
     shouldRelease,
+    doneStatusName,
   };
 };

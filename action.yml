@@ -29,6 +29,9 @@ inputs:
   jiraIssueKeys:
     description: Jira issue keys (comma separated)
     required: true
+  jiraIssueDoneStatusName:
+    description: Jira issue status name that represents `Done`
+    default: 'Done'
   shouldRelease:
     description: Whether release the version
     default: true

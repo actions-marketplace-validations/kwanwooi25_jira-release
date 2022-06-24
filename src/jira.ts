@@ -1,4 +1,4 @@
-import { getInput, info } from '@actions/core';
+import { info } from '@actions/core';
 import { Version2Client } from 'jira.js';
 import { Version } from 'jira.js/out/version2/models';
 import { getVariables } from './utils';
@@ -43,7 +43,7 @@ export const getProjectVersion = async (jiraClient: Version2Client) => {
 };
 
 export const updateIssues = async (jiraClient: Version2Client) => {
-  const { issueKeys, versionName } = getVariables();
+  const { issueKeys, versionName, doneStatusName } = getVariables();
 
   info('Updating related issues...');
 
@@ -52,7 +52,7 @@ export const updateIssues = async (jiraClient: Version2Client) => {
       info(`Updating ${issueKey}...`);
 
       const transitions = await jiraClient.issues.getTransitions({ issueIdOrKey: issueKey });
-      const doneTransition = transitions.transitions?.find((t) => t.name === 'Done');
+      const doneTransition = transitions.transitions?.find((t) => t.name?.includes(doneStatusName));
       if (!doneTransition) {
         return;
       }
