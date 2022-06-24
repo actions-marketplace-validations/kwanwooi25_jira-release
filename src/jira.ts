@@ -76,7 +76,11 @@ export const releaseProjectVersion = async (
   jiraClient: Version2Client,
   projectVersion: Version,
 ) => {
-  const { projectKey } = getVariables();
+  const { projectKey, shouldRelease } = getVariables();
+
+  if (!shouldRelease) {
+    return;
+  }
 
   info(`Releasing project version ${projectVersion.name}(${projectVersion.id})...`);
 

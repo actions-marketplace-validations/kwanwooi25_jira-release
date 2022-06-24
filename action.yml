@@ -29,6 +29,9 @@ inputs:
   jiraIssueKeys:
     description: Jira issue keys (comma separated)
     required: true
+  shouldRelease:
+    description: Whether release the version
+    default: true
 
 runs:
   using: 'node16'
