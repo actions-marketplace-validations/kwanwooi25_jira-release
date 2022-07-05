@@ -1,4 +1,5 @@
 import { info } from '@actions/core';
+import dayjs from 'dayjs';
 import { Version2Client } from 'jira.js';
 import { Version } from 'jira.js/out/version2/models';
 import { getVariables } from './utils';
@@ -88,5 +89,6 @@ export const releaseProjectVersion = async (
     id: projectVersion.id!,
     project: projectKey,
     released: true,
+    releaseDate: dayjs().format('YYYY-MM-DD'),
   });
 };

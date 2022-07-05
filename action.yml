@@ -33,7 +33,7 @@ inputs:
     description: Jira issue status name that represents `Done`
     default: 'Done'
   shouldRelease:
-    description: Whether release the version
+    description: Whether the jira version should be released automatically
     default: true
 
 runs:

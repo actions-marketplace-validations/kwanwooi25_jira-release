@@ -3,11 +3,13 @@ lockfileVersion: 5.4
 specifiers:
   '@actions/core': ^1.9.0
   '@vercel/ncc': ^0.34.0
+  dayjs: ^1.11.3
   jira.js: ^2.15.2
   typescript: ^4.7.4
 
 dependencies:
   '@actions/core': 1.9.0
+  dayjs: 1.11.3
   jira.js: 2.15.2
 
 devDependencies:
@@ -59,6 +61,10 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: false
+
+  /dayjs/1.11.3:
+    resolution: {integrity: sha512-xxwlswWOlGhzgQ4TKzASQkUhqERI3egRNqgV4ScR8wlANA/A9tZ7miXa44vTTKEq5l7vWoL5G57bG3zA+Kow0A==}
     dev: false
 
   /delayed-stream/1.0.0:
