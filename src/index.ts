@@ -1,5 +1,7 @@
 import { setFailed } from '@actions/core';
-import { getProjectVersion, initJiraClient, releaseProjectVersion, updateIssues } from './jira';
+import { initJiraClient } from './jira/init';
+import { getIssueKeys, updateIssues } from './jira/issues';
+import { getProjectVersion, releaseProjectVersion } from './jira/projectVersion';
 
 (async () => {
   try {
@@ -11,7 +13,8 @@ import { getProjectVersion, initJiraClient, releaseProjectVersion, updateIssues 
       return;
     }
 
-    await updateIssues(jiraClient);
+    const issueKeys = await getIssueKeys();
+    await updateIssues(jiraClient, issueKeys);
     await releaseProjectVersion(jiraClient, projectVersion);
   } catch (error: any) {
     console.table(error);

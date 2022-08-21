@@ -25,4 +25,3 @@ jobs:
           jiraProjectKey: 'ACTION'
           jiraVersionPrefix: 'v'
           jiraReleaseVersion: ${{ inputs.version }}
-          jiraIssueKeys: ${{ inputs.issueKeys }}
