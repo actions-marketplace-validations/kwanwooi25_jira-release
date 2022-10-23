@@ -32,6 +32,8 @@ inputs:
   shouldRelease:
     description: Whether the jira version should be released automatically
     default: true
+  slackWebhookUrl:
+    description: Slack Webhook URL to send Release Note
 
 outputs:
   releaseNote:

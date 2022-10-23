@@ -25,3 +25,4 @@ jobs:
           jiraProjectKey: 'ACTION'
           jiraVersionPrefix: 'v'
           jiraReleaseVersion: ${{ inputs.version }}
+          slackWebhookUrl: 'https://hooks.slack.com/workflows/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'

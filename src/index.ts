@@ -2,7 +2,7 @@ import { setFailed, setOutput } from '@actions/core';
 import { initJiraClient } from './jira/init';
 import { getIssueKeys, updateIssues } from './jira/issues';
 import { getProjectVersion, releaseProjectVersion } from './jira/projectVersion';
-import { createReleaseNote } from './jira/releaseNote';
+import { createReleaseNote, notifyReleaseNote } from './jira/releaseNote';
 
 (async () => {
   try {
@@ -18,6 +18,7 @@ import { createReleaseNote } from './jira/releaseNote';
     await updateIssues(jiraClient, issueKeys);
     await releaseProjectVersion(jiraClient, projectVersion);
     const releaseNote = await createReleaseNote(jiraClient, issueKeys);
+    await notifyReleaseNote(releaseNote);
     setOutput('releaseNote', releaseNote);
   } catch (error: any) {
     console.table(error);
