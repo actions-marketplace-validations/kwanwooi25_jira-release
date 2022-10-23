@@ -33,6 +33,10 @@ inputs:
     description: Whether the jira version should be released automatically
     default: true
 
+outputs:
+  releaseNote:
+    description: Release Note based on Jira Issues and IssueTypes
+
 runs:
   using: 'node16'
   main: 'lib/index.js'
