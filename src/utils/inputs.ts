@@ -12,6 +12,7 @@ export const getVariables = () => {
   const shouldRelease = getInput('shouldRelease') === 'true';
   const doneStatusName = getInput('jiraIssueDoneStatusName');
   const slackWebhookUrl = getInput('slackWebhookUrl');
+  const projectName = getInput('projectName');
 
   return {
     githubToken,
@@ -23,5 +24,6 @@ export const getVariables = () => {
     shouldRelease,
     doneStatusName,
     slackWebhookUrl,
+    projectName,
   };
 };

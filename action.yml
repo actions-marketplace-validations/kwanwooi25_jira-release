@@ -34,6 +34,8 @@ inputs:
     default: true
   slackWebhookUrl:
     description: Slack Webhook URL to send Release Note
+  projectName:
+    description: Project Name to be displayed on Slack Message
 
 outputs:
   releaseNote:

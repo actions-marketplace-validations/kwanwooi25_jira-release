@@ -52,7 +52,9 @@ export const updateIssues = async (jiraClient: Version2Client, issueKeys: string
       info(`Updating ${issueKey}...`);
 
       const transitions = await jiraClient.issues.getTransitions({ issueIdOrKey: issueKey });
-      const doneTransition = transitions.transitions?.find((t) => t.name?.includes(doneStatusName));
+      const doneTransition = transitions.transitions?.find((t) =>
+        t.name?.toLocaleLowerCase()?.includes(doneStatusName.toLocaleLowerCase()),
+      );
       if (!doneTransition) {
         return;
       }

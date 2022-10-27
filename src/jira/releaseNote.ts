@@ -28,14 +28,16 @@ export const createReleaseNote = async (jiraClient: Version2Client, issueKeys: s
       (issueType) => `
 *${issueType}*
 
-${issuesByIssueType[issueType].map((issue) => `- ${issue.fields?.summary}`).join('\n')}
+${issuesByIssueType[issueType]
+  .map((issue) => `- [${issue.key}] ${issue.fields?.summary}`)
+  .join('\n')}
 `,
     )
     .join('\n\n');
 };
 
 export const notifyReleaseNote = async (releaseNote: string) => {
-  const { slackWebhookUrl } = getVariables();
+  const { slackWebhookUrl, versionName, projectName } = getVariables();
   if (!slackWebhookUrl) {
     return;
   }
@@ -45,11 +47,12 @@ export const notifyReleaseNote = async (releaseNote: string) => {
   try {
     await fetch(slackWebhookUrl, {
       method: 'POST',
-      body: JSON.stringify({ releaseNote }),
+      body: JSON.stringify({ releaseNote, releaseVersion: versionName, projectName }),
       headers: { 'Content-Type': 'application/json' },
     });
     info('Release note notified on Slack');
   } catch (error) {
     info('Failed to notify release note on Slack');
+    info(String(error));
   }
 };
