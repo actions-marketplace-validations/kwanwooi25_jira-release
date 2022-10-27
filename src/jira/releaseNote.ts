@@ -27,7 +27,7 @@ export const createReleaseNote = async (jiraClient: Version2Client, issueKeys: s
   return Object.keys(issuesByIssueType)
     .map(
       (issueType) => `
-*${issueType}*
+*[${issueType}]*
 
 ${issuesByIssueType[issueType]
   .map((issue) => `- [${issue.key}] ${issue.fields?.summary}`)

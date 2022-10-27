@@ -1,6 +1,6 @@
 {
   "name": "jira-release",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Automated JIRA releases",
   "main": "index.js",
   "scripts": {
