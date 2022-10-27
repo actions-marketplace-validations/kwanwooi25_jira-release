@@ -1,4 +1,5 @@
 import { info } from '@actions/core';
+import axios from 'axios';
 import { Version2Client } from 'jira.js';
 import { Issue } from 'jira.js/out/version2/models';
 import { getVariables } from '../utils/inputs';
@@ -45,11 +46,7 @@ export const notifyReleaseNote = async (releaseNote: string) => {
   info('Notifying release note on Slack...');
 
   try {
-    await fetch(slackWebhookUrl, {
-      method: 'POST',
-      body: JSON.stringify({ releaseNote, releaseVersion: versionName, projectName }),
-      headers: { 'Content-Type': 'application/json' },
-    });
+    await axios.post(slackWebhookUrl, { releaseNote, releaseVersion: versionName, projectName });
     info('Release note notified on Slack');
   } catch (error) {
     info('Failed to notify release note on Slack');
