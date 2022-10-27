@@ -38,7 +38,7 @@ ${issuesByIssueType[issueType]
 };
 
 export const notifyReleaseNote = async (releaseNote: string) => {
-  const { slackWebhookUrl, versionName, projectName } = getVariables();
+  const { slackWebhookUrl, releaseVersion, projectName } = getVariables();
   if (!slackWebhookUrl) {
     return;
   }
@@ -46,7 +46,7 @@ export const notifyReleaseNote = async (releaseNote: string) => {
   info('Notifying release note on Slack...');
 
   try {
-    await axios.post(slackWebhookUrl, { releaseNote, releaseVersion: versionName, projectName });
+    await axios.post(slackWebhookUrl, { releaseNote, releaseVersion, projectName });
     info('Release note notified on Slack');
   } catch (error) {
     info('Failed to notify release note on Slack');

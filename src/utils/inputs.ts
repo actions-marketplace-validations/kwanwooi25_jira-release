@@ -20,6 +20,7 @@ export const getVariables = () => {
     email,
     apiToken,
     projectKey,
+    releaseVersion: version,
     versionName,
     shouldRelease,
     doneStatusName,
